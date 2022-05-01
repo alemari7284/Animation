@@ -698,7 +698,7 @@ var app = (function () {
     			attr_dev(div, "class", "card svelte-1a1ekzd");
     			set_style(div, "background", /*card*/ ctx[5].color);
     			set_style(div, "transform", "rotateZ(" + /*$cardPos*/ ctx[1][/*i*/ ctx[7]].rotation + "deg) translateX(" + /*$cardPos*/ ctx[1][/*i*/ ctx[7]].dx + "px)");
-    			add_location(div, file, 76, 6, 1274);
+    			add_location(div, file, 76, 6, 1313);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -774,9 +774,9 @@ var app = (function () {
     			}
 
     			attr_dev(div0, "class", "cards");
-    			add_location(div0, file, 74, 2, 1208);
+    			add_location(div0, file, 74, 2, 1247);
     			attr_dev(div1, "class", "page svelte-1a1ekzd");
-    			add_location(div1, file, 73, 0, 1187);
+    			add_location(div1, file, 73, 0, 1226);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -835,7 +835,7 @@ var app = (function () {
     	validate_store(cards, 'cards');
     	component_subscribe($$self, cards, value => $$invalidate(0, $cards = value));
 
-    	let cardPos = writable([
+    	let cardPos = tweened([
     		{ rotation: 10, dx: 0 },
     		{ rotation: -10, dx: 0 },
     		{ rotation: 19, dx: 0 },
@@ -864,6 +864,7 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		writable,
+    		tweened,
     		cards,
     		cardPos,
     		discard,

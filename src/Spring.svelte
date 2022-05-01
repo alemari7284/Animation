@@ -1,6 +1,6 @@
 <script>
   import { writable } from "svelte/store";
-  
+  import { tweened } from "svelte/motion";
   let cards = writable([
     {
       id: "c1",
@@ -19,7 +19,7 @@
       color: "orange"
     }
   ]);
-  let cardPos = writable([
+  let cardPos = tweened([
     {
       rotation: 10,
       dx: 0
